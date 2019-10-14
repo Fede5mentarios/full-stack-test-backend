@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class PurchaseFactory {
 
     public static List<PurchaseDTO> toPurchaseDTO(List<PurchaseMO> all) {
-        return all.stream().map( mo -> PurchaseFactory.toPurchaseDTO(mo)).collect(Collectors.toList());
+        return all.stream().map(PurchaseFactory::toPurchaseDTO).collect(Collectors.toList());
     }
 
     public static PurchaseDTO toPurchaseDTO(PurchaseMO mo) {

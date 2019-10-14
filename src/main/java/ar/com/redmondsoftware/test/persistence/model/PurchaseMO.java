@@ -1,10 +1,13 @@
 package ar.com.redmondsoftware.test.persistence.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "PURCHASE")
+@Data
 public class PurchaseMO {
 
     @Id
@@ -24,38 +27,6 @@ public class PurchaseMO {
         this.transactionDate = LocalDateTime.now();
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getUserNumber() {
-        return userNumber;
-    }
-
-    public void setUserNumber(Long userNumber) {
-        this.userNumber = userNumber;
-    }
-
-    public Long getPackId() {
-        return packId;
-    }
-
-    public void setPackId(Long packId) {
-        this.packId = packId;
-    }
-
-    public LocalDateTime getTransactionDate() {
-        return transactionDate;
-    }
-
-    public void setTransactionDate(LocalDateTime transactionDate) {
-        this.transactionDate = transactionDate;
-    }
-
     @Override
     public String toString() {
         return "PurchaseMO{" +
@@ -65,5 +36,4 @@ public class PurchaseMO {
                 ", transactionDate=" + transactionDate +
                 '}';
     }
-
 }

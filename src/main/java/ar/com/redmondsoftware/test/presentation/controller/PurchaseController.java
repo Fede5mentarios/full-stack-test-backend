@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/purchase")
@@ -28,9 +29,11 @@ public class PurchaseController {
     }
 
     @PostMapping("/user/{userNumber}")
-    public ResponseEntity<PurchaseDTO> savePurchase(@PathVariable Long userNumber, @RequestBody RegisterPurchaseDTO purchase)  {
-        PurchaseDTO savedPurchase = this.purchaseService.savePurchase(userNumber, purchase);
-        return new ResponseEntity<>(savedPurchase, HttpStatus.CREATED);
+    public ResponseEntity<PurchaseDTO> savePurchase(@PathVariable Long userNumber, @RequestBody RegisterPurchaseDTO purchase) {
+        Optional<PurchaseDTO> savedPurchase = this.purchaseService.savePurchase(userNumber, purchase);
+        return savedPurchase.map(
+                purchaseDTO -> new ResponseEntity<>(purchaseDTO, HttpStatus.CREATED))
+                .orElseGet(() -> ResponseEntity.badRequest().build());
     }
 
 }

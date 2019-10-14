@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class BoltonFactory {
 
     public static List<BoltonDTO> toBoltonDTO(List<BoltonMO> all) {
-        return all.stream().map( mo -> toBoltonDTO(mo)).collect(Collectors.toList());
+        return all.stream().map(BoltonFactory::toBoltonDTO).collect(Collectors.toList());
     }
 
     public static BoltonDTO toBoltonDTO(BoltonMO mo) {
@@ -36,7 +36,7 @@ public class BoltonFactory {
     }
 
     public static List<BoltonMO> toBoltonMO(List<BoltonDTO> all) {
-        return all.stream().map( dto -> toBoltonMO(dto)).collect(Collectors.toList());
+        return all.stream().map(BoltonFactory::toBoltonMO).collect(Collectors.toList());
     }
 
     public static BoltonMO toBoltonMO(BoltonDTO dto) {

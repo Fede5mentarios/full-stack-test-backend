@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class PackFactory {
 
     public static List<PackDTO> toPackDTO(List<PackMO> all) {
-        return all.stream().map( mo -> PackFactory.toPackDTO(mo)).collect(Collectors.toList());
+        return all.stream().map(PackFactory::toPackDTO).collect(Collectors.toList());
     }
 
     public static PackDTO toPackDTO(PackMO mo) {
@@ -26,7 +26,7 @@ public class PackFactory {
     }
 
     public static List<PackMO> toPackMO(List<PackDTO> all) {
-        return all.stream().map( dto -> PackFactory.toPackMO(dto)).collect(Collectors.toList());
+        return all.stream().map(PackFactory::toPackMO).collect(Collectors.toList());
     }
 
     public static PackMO toPackMO(PackDTO dto) {

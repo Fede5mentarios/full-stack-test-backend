@@ -18,6 +18,10 @@ public class PackMO {
     @JoinColumn(name="PACK_ID", nullable=false)
     private List<BoltonMO> boltons;
 
+    @OneToMany(cascade = CascadeType.DETACH)
+    @JoinColumn(name="PACK_ID")
+    private List<PurchaseMO> purchases;
+
     public Long getId() {
         return id;
     }
@@ -58,6 +62,14 @@ public class PackMO {
         this.boltons = boltons;
     }
 
+    public List<PurchaseMO> getPurchases() {
+        return purchases;
+    }
+
+    public void setPurchases(List<PurchaseMO> purchases) {
+        this.purchases = purchases;
+    }
+
     @Override
     public String toString() {
         return "PackMO{" +
@@ -66,6 +78,7 @@ public class PackMO {
                 ", cost=" + cost +
                 ", days=" + days +
                 ", boltons=" + boltons +
+                ", purchases=" + purchases +
                 '}';
     }
 }

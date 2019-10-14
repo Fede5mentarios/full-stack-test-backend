@@ -11,6 +11,7 @@ public class PurchaseMO {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
     private Long userNumber;
+    @Column(name = "PACK_ID", nullable = false)
     private Long packId;
     private LocalDateTime transactionDate;
 

@@ -9,6 +9,7 @@ public class PackDTO {
     private Double cost;
     private Integer days;
     private List<BoltonDTO> boltons;
+    private List<PurchaseDTO> purchases;
 
     public Long getId() {
         return id;
@@ -50,6 +51,14 @@ public class PackDTO {
         this.boltons = boltons;
     }
 
+    public List<PurchaseDTO> getPurchases() {
+        return purchases;
+    }
+
+    public void setPurchases(List<PurchaseDTO> purchases) {
+        this.purchases = purchases;
+    }
+
     @Override
     public String toString() {
         return "PackDTO{" +
@@ -58,7 +67,7 @@ public class PackDTO {
                 ", cost=" + cost +
                 ", days=" + days +
                 ", boltons=" + boltons +
+                ", purchases=" + purchases +
                 '}';
     }
-
 }
